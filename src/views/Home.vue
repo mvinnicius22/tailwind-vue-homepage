@@ -89,7 +89,7 @@
 
 <script>
 import navbar from '../components/navbar.vue';
-
+import axios from 'axios'
 export default {
   name: 'Home',
   components: {
@@ -99,6 +99,7 @@ export default {
       return{
         system: {
         },
+        agendamentos: null,
         modalInicial: true,
         classeCarousel: "mt-20 p-12 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-10 max-w-4xl mx-auto md:max-w-1xl rounded overflow-hidden shadow-lg",
         classeCarouselClosed: "mt-0 p-4 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-10 max-w-4xl mx-auto md:max-w-1xl rounded overflow-hidden shadow-lg",
@@ -106,11 +107,14 @@ export default {
       }
     },
     methods:{
-    
-
+      getInfo(){
+        axios.get('http://localhost:8000/api/v1/agendamentos').then((res) => {
+          this.agendamentos = res.data
+        })
+      },
+    },
     mounted(){
-      
+      this.getInfo()
     }
-  }
 }
 </script>
