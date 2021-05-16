@@ -263,7 +263,7 @@
 </template>
 
 <script>
-import navbar from '../components/navbar.vue';
+import navbar from '../components/PublicNavbar.vue';
 import axios from 'axios'
 export default {
   name: 'Home',

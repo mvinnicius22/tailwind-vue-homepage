@@ -1,5 +1,16 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div class="flex flex-wrap mt-4">
+    <div class="w-full mb-12 px-4">
+      <card-table />
+    </div>
   </div>
 </template>
+<script>
+import CardTable from "@/components/CardTable.vue";
+
+export default {
+  components: {
+    CardTable,
+  },
+};
+</script>
